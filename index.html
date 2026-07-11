@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vipin Sharma · Paid Ads Specialist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<style>
+  :root{
+    --paper:#f1efe6;
+    --ink:#171a14;
+    --body:#3a3d33;
+    --muted:#7a7b6c;
+    --line:#d9d5c5;
+    --card:#ffffff;
+    --brick:#c1442d;
+    --teal:#1f6f5c;
+    --amber:#c68a1f;
+    --radius:8px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--body);
+    font-family:'Inter',system-ui,sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:'Space Grotesk',sans-serif;color:var(--ink);letter-spacing:-0.01em;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 24px;}
+  section{padding:52px 0;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+
+  /* ===== Top bar ===== */
+  .topbar{border-bottom:1px solid var(--line);}
+  .topbar-inner{
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;
+    padding:20px 24px;
+  }
+  .brand-name{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.25rem;color:var(--ink);}
+  .brand-name span{color:var(--brick);}
+  .brand-role{
+    font-family:'IBM Plex Mono',monospace;font-size:0.72rem;letter-spacing:0.06em;
+    text-transform:uppercase;color:var(--muted);margin-top:2px;
+  }
+  .contact-links{display:flex;gap:8px;flex-wrap:wrap;}
+  .contact-links a{
+    display:flex;align-items:center;gap:6px;
+    border:1px solid var(--line);padding:8px 13px;border-radius:var(--radius);
+    font-family:'IBM Plex Mono',monospace;font-size:0.76rem;font-weight:500;color:var(--ink);
+    background:var(--card);transition:border-color .15s ease, color .15s ease;
+  }
+  .contact-links a:hover{border-color:var(--brick);color:var(--brick);}
+  .contact-links i{font-size:0.85rem;}
+
+  /* ===== Ticker ===== */
+  .ticker-strip{
+    background:var(--ink);color:var(--paper);overflow:hidden;white-space:nowrap;
+    border-bottom:1px solid var(--line);
+  }
+  .ticker-track{
+    display:inline-flex;gap:48px;padding:10px 0;
+    font-family:'IBM Plex Mono',monospace;font-size:0.78rem;letter-spacing:0.03em;
+    animation:scroll-left 28s linear infinite;
+  }
+  .ticker-track span{display:inline-flex;align-items:center;gap:8px;}
+  .ticker-track .dot{width:5px;height:5px;border-radius:50%;background:var(--brick);}
+  @keyframes scroll-left{
+    from{transform:translateX(0);} to{transform:translateX(-50%);}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .ticker-track{animation:none;}
+  }
+
+  /* ===== Section label (ledger style) ===== */
+  .sec-label{
+    display:flex;align-items:baseline;gap:12px;margin-bottom:6px;
+  }
+  .sec-index{
+    font-family:'IBM Plex Mono',monospace;font-size:0.78rem;color:var(--brick);font-weight:600;
+  }
+  .sec-title{font-size:1.5rem;font-weight:700;}
+  .sec-rule{height:1px;background:var(--line);margin:14px 0 26px;}
+  .sec-desc{color:var(--muted);font-size:0.92rem;max-width:56ch;}
+
+  /* ===== Hero ===== */
+  .hero-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:start;margin-top:8px;}
+  .hero-num{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(2.6rem,6vw,4rem);line-height:1;color:var(--ink);}
+  .hero-num span{color:var(--brick);}
+  .hero-num-label{
+    font-family:'IBM Plex Mono',monospace;font-size:0.78rem;letter-spacing:0.06em;
+    text-transform:uppercase;color:var(--muted);margin-top:10px;
+  }
+  .hero-note{margin-top:20px;font-size:0.95rem;color:var(--body);max-width:44ch;}
+
+  .ledger-list{border-top:1px solid var(--line);}
+  .ledger-row{
+    display:flex;justify-content:space-between;align-items:baseline;
+    padding:14px 0;border-bottom:1px solid var(--line);gap:12px;
+  }
+  .ledger-row .li-label{
+    display:flex;align-items:center;gap:10px;font-size:0.92rem;color:var(--body);
+  }
+  .ledger-row .li-idx{font-family:'IBM Plex Mono',monospace;font-size:0.75rem;color:var(--muted);}
+  .ledger-row .li-val{font-family:'IBM Plex Mono',monospace;font-weight:600;color:var(--ink);font-size:0.95rem;white-space:nowrap;}
+
+  .stack-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px;}
+  .stack-chip{
+    display:flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--card);
+    padding:9px 14px;border-radius:var(--radius);font-family:'IBM Plex Mono',monospace;font-size:0.78rem;color:var(--ink);
+  }
+  .stack-chip i{color:var(--teal);}
+
+  .chart-card{
+    margin-top:32px;border:1px solid var(--line);border-radius:var(--radius);background:var(--card);padding:24px;
+  }
+  .chart-card h3{font-size:1rem;font-weight:600;margin-bottom:16px;display:flex;align-items:center;gap:8px;}
+  .chart-card h3 i{color:var(--brick);font-size:0.9rem;}
+  .chart-wrap{position:relative;height:270px;}
+
+  /* ===== Bullet list (ledger dots) ===== */
+  .dot-list{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:16px;}
+  .dot-list div{
+    display:flex;align-items:center;gap:7px;font-family:'IBM Plex Mono',monospace;
+    font-size:0.78rem;color:var(--body);
+  }
+  .dot-list div::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--teal);flex-shrink:0;}
+
+  /* ===== Image grids ===== */
+  .grid-5{display:grid;grid-template-columns:1fr;gap:14px;margin-top:24px;}
+  .grid-stack{display:grid;grid-template-columns:1fr;gap:14px;margin-top:24px;}
+  .img-frame{
+    border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);
+    background:var(--card);position:relative;
+  }
+  .img-frame.overview-ratio{aspect-ratio:1493/327;}
+  .img-frame.campaign-ratio{aspect-ratio:485/434;}
+  .img-frame img{width:100%;height:100%;object-fit:cover;}
+  .img-fallback{
+    position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+    font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--muted);text-align:center;padding:8px;
+  }
+
+  /* ===== Resume ===== */
+  .resume-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:8px;}
+  .resume-block h3{
+    display:flex;align-items:center;gap:9px;font-size:1.02rem;margin-bottom:16px;font-weight:600;
+  }
+  .resume-block h3 i{color:var(--brick);font-size:0.9rem;}
+  .skill-chips{display:flex;flex-wrap:wrap;gap:8px;}
+  .skill-chip{
+    border:1px solid var(--line);background:var(--card);padding:7px 12px;border-radius:var(--radius);
+    font-family:'IBM Plex Mono',monospace;font-size:0.75rem;color:var(--ink);
+  }
+  .edu-row{display:flex;justify-content:space-between;gap:10px;padding:11px 0;border-bottom:1px solid var(--line);}
+  .edu-row:first-child{border-top:1px solid var(--line);}
+  .edu-row .t{font-size:0.88rem;font-weight:600;color:var(--ink);}
+  .edu-row .m{font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--muted);text-align:right;white-space:nowrap;}
+
+  .exp-block{
+    margin-top:28px;border:1px solid var(--line);border-radius:var(--radius);background:var(--card);padding:26px;
+  }
+  .exp-head{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;align-items:baseline;margin-bottom:4px;}
+  .exp-role{font-size:1.05rem;font-weight:700;display:flex;align-items:center;gap:9px;}
+  .exp-role i{color:var(--brick);font-size:0.9rem;}
+  .exp-duration{font-family:'IBM Plex Mono',monospace;font-size:0.75rem;color:var(--muted);}
+  .exp-company{color:var(--teal);font-weight:600;font-size:0.9rem;margin-bottom:16px;}
+  .exp-desc{font-size:0.9rem;color:var(--body);margin-top:16px;padding-top:16px;border-top:1px solid var(--line);}
+
+  /* ===== Gallery ===== */
+  .gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;margin-top:24px;}
+  .gallery-item{
+    aspect-ratio:1/1;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);
+    background:var(--card);position:relative;
+  }
+  .gallery-item img{width:100%;height:100%;object-fit:cover;}
+  .gallery-fallback{
+    position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+    font-family:'IBM Plex Mono',monospace;font-size:0.72rem;font-weight:600;color:var(--muted);
+  }
+
+  /* ===== Growth ledger ===== */
+  .growth-list{margin-top:8px;border-top:1px solid var(--line);}
+  .growth-row{
+    display:grid;grid-template-columns:60px 1fr 1.6fr;gap:20px;padding:20px 0;
+    border-bottom:1px solid var(--line);align-items:baseline;
+  }
+  .growth-row .g-idx{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.3rem;color:var(--brick);}
+  .growth-row .g-title{font-weight:600;color:var(--ink);font-size:0.98rem;}
+  .growth-row .g-desc{color:var(--muted);font-size:0.88rem;}
+
+  /* ===== Footer ===== */
+  footer{padding:34px 0;}
+  .footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;}
+  .footer-copy{font-family:'IBM Plex Mono',monospace;font-size:0.75rem;color:var(--muted);}
+  .footer-links{display:flex;gap:16px;}
+  .footer-links a{font-family:'IBM Plex Mono',monospace;font-size:0.78rem;display:flex;align-items:center;gap:6px;color:var(--ink);}
+  .footer-links a:hover{color:var(--brick);}
+  .footer-links i{color:var(--brick);}
+
+  /* ===== Responsive ===== */
+  @media(max-width:860px){
+    .hero-grid{grid-template-columns:1fr;}
+    .resume-grid{grid-template-columns:1fr;}
+    .growth-row{grid-template-columns:44px 1fr;}
+    .growth-row .g-desc{grid-column:2/3;}
+  }
+  @media(max-width:480px){
+    .wrap{padding:0 16px;}
+    .topbar-inner{padding:16px;}
+    section{padding:38px 0;}
+    .hero-num{font-size:2.2rem;}
+    .gallery-grid{grid-template-columns:repeat(auto-fill,minmax(100px,1fr));}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div>
+      <div class="brand-name">Vipin <span>Sharma</span></div>
+      <div class="brand-role">Paid Ads Specialist — Google &amp; Meta</div>
+    </div>
+    <div class="contact-links">
+      <a href="mailto:vipincanva@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a>
+      <a href="https://wa.me/919540559818" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+      <a href="https://www.linkedin.com/in/vipin-krayons/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+    </div>
+  </div>
+</div>
+
+<div class="ticker-strip">
+  <div class="ticker-track" id="tickerTrack"></div>
+</div>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-num">$120K<span>+</span></div>
+        <div class="hero-num-label">Client revenue generated · 10X growth</div>
+        <p class="hero-note">Running Google &amp; Meta ad accounts end-to-end — strategy, creative, targeting, and reporting — for clients who need leads that actually convert.</p>
+        <div class="stack-row">
+          <div class="stack-chip"><i class="fa-brands fa-google"></i> Google Ads · PPC</div>
+          <div class="stack-chip"><i class="fa-brands fa-meta"></i> Meta Ads · FB/IG</div>
+          <div class="stack-chip"><i class="fa-solid fa-chart-line"></i> ROI · data-driven</div>
+          <div class="stack-chip"><i class="fa-solid fa-toolbox"></i> SEO + SMO</div>
+        </div>
+      </div>
+      <div class="ledger-list">
+        <div class="ledger-row">
+          <div class="li-label"><span class="li-idx">01</span> Leads generated</div>
+          <div class="li-val">10,000+</div>
+        </div>
+        <div class="ledger-row">
+          <div class="li-label"><span class="li-idx">02</span> Experience</div>
+          <div class="li-val">2.5+ yrs</div>
+        </div>
+        <div class="ledger-row">
+          <div class="li-label"><span class="li-idx">03</span> ROAS improvement</div>
+          <div class="li-val">10X</div>
+        </div>
+        <div class="ledger-row">
+          <div class="li-label"><span class="li-idx">04</span> Campaign scope</div>
+          <div class="li-val">Full-funnel</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chart-card">
+      <h3><i class="fa-solid fa-chart-line"></i> 6-Month Performance Trend</h3>
+      <div class="chart-wrap"><canvas id="perfChart"></canvas></div>
+    </div>
+  </div>
+</section>
+
+<section id="overview">
+  <div class="wrap">
+    <div class="sec-label"><span class="sec-index">SEC.02</span><h2 class="sec-title">Ads Overview</h2></div>
+    <div class="sec-rule"></div>
+    <div class="dot-list">
+      <div>Campaign structure</div>
+      <div>Targeting snapshots</div>
+      <div>Performance insights</div>
+      <div>Audience segmentation</div>
+      <div>Creative variants</div>
+    </div>
+    <div class="grid-stack" id="overviewGrid"></div>
+  </div>
+</section>
+
+<section id="campaigns">
+  <div class="wrap">
+    <div class="sec-label"><span class="sec-index">SEC.03</span><h2 class="sec-title">Campaigns</h2></div>
+    <div class="sec-rule"></div>
+    <div class="dot-list">
+      <div>Google &amp; Meta ad sets</div>
+      <div>High-converting creatives</div>
+      <div>A/B tested &amp; optimized</div>
+      <div>Retargeting flows</div>
+      <div>Lookalike audiences</div>
+    </div>
+    <div class="grid-5" id="campaignGrid"></div>
+  </div>
+</section>
+
+<section id="resume">
+  <div class="wrap">
+    <div class="sec-label"><span class="sec-index">SEC.04</span><h2 class="sec-title">Skills &amp; Background</h2></div>
+    <div class="sec-rule"></div>
+    <div class="resume-grid">
+      <div class="resume-block">
+        <h3><i class="fa-solid fa-code"></i> Core Skills</h3>
+        <div class="skill-chips">
+          <div class="skill-chip">SEO</div>
+          <div class="skill-chip">SMO</div>
+          <div class="skill-chip">WordPress</div>
+          <div class="skill-chip">Google Ads</div>
+          <div class="skill-chip">Meta Ads</div>
+          <div class="skill-chip">Google Analytics</div>
+          <div class="skill-chip">Search Console</div>
+          <div class="skill-chip">SEMRUSH Pro</div>
+          <div class="skill-chip">Canva Premium</div>
+          <div class="skill-chip">Keyword Research</div>
+          <div class="skill-chip">MS Office</div>
+          <div class="skill-chip"><i class="fa-solid fa-keyboard" style="color:var(--teal);margin-right:5px;"></i>Typing 39 WPM</div>
+        </div>
+      </div>
+      <div class="resume-block">
+        <h3><i class="fa-solid fa-graduation-cap"></i> Education</h3>
+        <div class="edu-row"><div class="t">Digital Marketing</div><div class="m">DIDM, New Delhi<br>2023</div></div>
+        <div class="edu-row"><div class="t">Diploma, Mechanical Eng.</div><div class="m">Pusa Institute<br>79% · 2022</div></div>
+        <div class="edu-row"><div class="t">10th Standard</div><div class="m">Govt. School, Delhi<br>73%</div></div>
+      </div>
+    </div>
+
+    <div class="exp-block">
+      <div class="exp-head">
+        <div class="exp-role"><i class="fa-solid fa-briefcase"></i> Digital Marketing Executive</div>
+        <div class="exp-duration">AUG 2023 — PRESENT</div>
+      </div>
+      <div class="exp-company">Krayons Convergence Pvt Ltd</div>
+      <div class="skill-chips">
+        <div class="skill-chip">Technical SEO audits</div>
+        <div class="skill-chip">On-page &amp; Off-page</div>
+        <div class="skill-chip">Link building</div>
+        <div class="skill-chip">Web Analytics (GA, GSC)</div>
+        <div class="skill-chip">Content optimization</div>
+        <div class="skill-chip">Keyword research</div>
+        <div class="skill-chip">SEO reporting</div>
+        <div class="skill-chip">Strategy development</div>
+      </div>
+      <p class="exp-desc">Manage client campaigns end-to-end — improving site speed, mobile usability, and indexability, while building high-authority backlinks that move rankings.</p>
+    </div>
+  </div>
+</section>
+
+<section id="creatives">
+  <div class="wrap">
+    <div class="sec-label"><span class="sec-index">SEC.05</span><h2 class="sec-title">Ad Creatives</h2></div>
+    <div class="sec-rule"></div>
+    <p class="sec-desc">50+ designs built for social media &amp; Meta ads — engineered for performance, not just looks.</p>
+    <div class="gallery-grid" id="galleryGrid"></div>
+  </div>
+</section>
+
+<section id="growth">
+  <div class="wrap">
+    <div class="sec-label"><span class="sec-index">SEC.06</span><h2 class="sec-title">How I Grow Your Business</h2></div>
+    <div class="sec-rule"></div>
+    <p class="sec-desc">Paid ads that convert, scale, and build trust.</p>
+    <div class="growth-list">
+      <div class="growth-row"><div class="g-idx">01</div><div class="g-title">Precision targeting</div><div class="g-desc">Google &amp; Meta audiences — custom, lookalike, retargeting.</div></div>
+      <div class="growth-row"><div class="g-idx">02</div><div class="g-title">Data-driven creative</div><div class="g-desc">A/B testing ad copy, visuals &amp; CTAs. Optimize for CTR &amp; ROAS.</div></div>
+      <div class="growth-row"><div class="g-idx">03</div><div class="g-title">Full-funnel strategy</div><div class="g-desc">From awareness to purchase — campaigns that nurture and convert.</div></div>
+      <div class="growth-row"><div class="g-idx">04</div><div class="g-title">Budget efficiency</div><div class="g-desc">Maximize every dollar. Lower CPA, higher lifetime value.</div></div>
+      <div class="growth-row"><div class="g-idx">05</div><div class="g-title">Mobile-first ads</div><div class="g-desc">All creatives &amp; landing pages optimized for mobile.</div></div>
+      <div class="growth-row"><div class="g-idx">06</div><div class="g-title">Scalable growth</div><div class="g-desc">Systems that scale. 10X revenue growth delivered.</div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div class="footer-copy">© 2026 VIPIN SHARMA — PAID ADS PORTFOLIO // END OF REPORT</div>
+    <div class="footer-links">
+      <a href="mailto:vipincanva@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a>
+      <a href="https://www.linkedin.com/in/vipin-krayons/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+      <a href="https://wa.me/919540559818" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ---- Ticker ----
+  const tickerItems = [
+    '$120K+ CLIENT REVENUE', '10X ROAS', '10,000+ LEADS GENERATED',
+    '2.5+ YEARS EXPERIENCE', 'GOOGLE ADS CERTIFIED WORKFLOW', 'META ADS · FB / IG',
+    'FULL-FUNNEL CAMPAIGNS', 'SEO + SMO INTEGRATED'
+  ];
+  const track = document.getElementById('tickerTrack');
+  const loopItems = [...tickerItems, ...tickerItems]; // duplicate for seamless loop
+  loopItems.forEach(t => {
+    const span = document.createElement('span');
+    span.innerHTML = '<span class="dot"></span>' + t;
+    track.appendChild(span);
+  });
+
+  // ---- Performance Chart ----
+  const ctx = document.getElementById('perfChart').getContext('2d');
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: ['Month 1','Month 2','Month 3','Month 4','Month 5','Month 6'],
+      datasets: [
+        {
+          label: 'CTR (%)',
+          data: [1.8, 2.1, 2.6, 3.0, 3.4, 3.9],
+          borderColor: '#c1442d',
+          backgroundColor: 'rgba(193,68,45,0.08)',
+          tension: 0.3, fill:true, borderWidth:2.25, pointRadius:2.5
+        },
+        {
+          label: 'Conversion Rate (%)',
+          data: [2.2, 2.9, 3.5, 4.2, 5.0, 5.8],
+          borderColor: '#1f6f5c',
+          backgroundColor: 'rgba(31,111,92,0.08)',
+          tension: 0.3, fill:true, borderWidth:2.25, pointRadius:2.5
+        },
+        {
+          label: 'ROAS (x)',
+          data: [3.0, 4.2, 5.5, 6.8, 8.4, 10.0],
+          borderColor: '#c68a1f',
+          backgroundColor: 'rgba(198,138,31,0.08)',
+          tension: 0.3, fill:true, borderWidth:2.25, pointRadius:2.5
+        }
+      ]
+    },
+    options: {
+      responsive:true, maintainAspectRatio:false,
+      plugins:{ legend:{ position:'bottom', labels:{ color:'#3a3d33', usePointStyle:true, padding:16, font:{family:"'IBM Plex Mono', monospace", size:11} } } },
+      scales:{
+        x:{ grid:{ color:'#d9d5c5' }, ticks:{ color:'#7a7b6c', font:{family:"'IBM Plex Mono', monospace", size:10} } },
+        y:{ grid:{ color:'#d9d5c5' }, ticks:{ color:'#7a7b6c', font:{family:"'IBM Plex Mono', monospace", size:10} } }
+      }
+    }
+  });
+
+  // ---- Image grid builders with fallback ----
+  function buildImageGrid(containerId, urls, ratioClass, labelPrefix){
+    const container = document.getElementById(containerId);
+    urls.forEach((url, i) => {
+      const frame = document.createElement('div');
+      frame.className = 'img-frame ' + ratioClass;
+      const img = document.createElement('img');
+      img.src = url;
+      img.loading = 'lazy';
+      img.alt = labelPrefix + ' ' + (i+1);
+      img.onerror = function(){
+        frame.innerHTML = '<div class="img-fallback">' + labelPrefix + ' ' + (i+1) + '</div>';
+      };
+      frame.appendChild(img);
+      container.appendChild(frame);
+    });
+  }
+
+  const overviewUrls = [1,2,3,4,5].map(n =>
+    `https://raw.githubusercontent.com/vipinkrayons/vipin-portfolio-ppc-expert/refs/heads/main/ads/overviews${n}.webp`
+  );
+  const campaignUrls = [1,2,3,4,5].map(n =>
+    `https://raw.githubusercontent.com/vipinkrayons/vipin-portfolio-ppc-expert/refs/heads/main/ads/campaign${n}.webp`
+  );
+  buildImageGrid('overviewGrid', overviewUrls, 'overview-ratio', 'Overview');
+  buildImageGrid('campaignGrid', campaignUrls, 'campaign-ratio', 'Campaign');
+
+  // ---- Ad creatives gallery (50 images) ----
+  const galleryContainer = document.getElementById('galleryGrid');
+  for(let i=1;i<=50;i++){
+    const url = `https://raw.githubusercontent.com/vipinkrayons/vipin-portfolio-ppc-expert/refs/heads/main/webp-images/ads(${i}).webp`;
+    const item = document.createElement('div');
+    item.className = 'gallery-item';
+    const img = document.createElement('img');
+    img.src = url;
+    img.loading = 'lazy';
+    img.alt = 'Ad creative ' + i;
+    img.onerror = function(){
+      item.innerHTML = '<div class="gallery-fallback">#' + i + '</div>';
+    };
+    item.appendChild(img);
+    galleryContainer.appendChild(item);
+  }
+</script>
+
+</body>
+</html>
