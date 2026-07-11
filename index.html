@@ -155,6 +155,11 @@
     display:flex;align-items:center;gap:9px;font-size:1.02rem;margin-bottom:16px;font-weight:600;
   }
   .resume-block h3 i{color:var(--brick);font-size:0.9rem;}
+  .skill-group-label{
+    font-family:'IBM Plex Mono',monospace;font-size:0.72rem;letter-spacing:0.06em;
+    text-transform:uppercase;color:var(--brick);margin:16px 0 8px;
+  }
+  .skill-group-label:first-of-type{margin-top:0;}
   .skill-chips{display:flex;flex-wrap:wrap;gap:8px;}
   .skill-chip{
     border:1px solid var(--line);background:var(--card);padding:7px 12px;border-radius:var(--radius);
@@ -320,17 +325,40 @@
     <div class="resume-grid">
       <div class="resume-block">
         <h3><i class="fa-solid fa-code"></i> Core Skills</h3>
+
+        <div class="skill-group-label">Google Ads</div>
+        <div class="skill-chips">
+          <div class="skill-chip">Google Ads</div>
+          <div class="skill-chip">Search Campaigns</div>
+          <div class="skill-chip">Performance Max</div>
+          <div class="skill-chip">Google Tag Manager</div>
+          <div class="skill-chip">Google Analytics (GA4)</div>
+          <div class="skill-chip">Conversion Tracking</div>
+        </div>
+
+        <div class="skill-group-label">Meta Ads</div>
+        <div class="skill-chips">
+          <div class="skill-chip">Meta Ads</div>
+          <div class="skill-chip">Facebook &amp; Instagram Ads</div>
+          <div class="skill-chip">Pixel Setup</div>
+          <div class="skill-chip">Meta Business Suite</div>
+          <div class="skill-chip">Audience Manager</div>
+        </div>
+
+        <div class="skill-group-label">SEO</div>
         <div class="skill-chips">
           <div class="skill-chip">SEO</div>
           <div class="skill-chip">SMO</div>
-          <div class="skill-chip">WordPress</div>
-          <div class="skill-chip">Google Ads</div>
-          <div class="skill-chip">Meta Ads</div>
-          <div class="skill-chip">Google Analytics</div>
           <div class="skill-chip">Search Console</div>
           <div class="skill-chip">SEMRUSH Pro</div>
-          <div class="skill-chip">Canva Premium</div>
           <div class="skill-chip">Keyword Research</div>
+          <div class="skill-chip">WordPress</div>
+        </div>
+
+        <div class="skill-group-label">Tools &amp; More</div>
+        <div class="skill-chips">
+          <div class="skill-chip">Microsoft Clarity</div>
+          <div class="skill-chip">Canva Premium</div>
           <div class="skill-chip">MS Office</div>
           <div class="skill-chip"><i class="fa-solid fa-keyboard" style="color:var(--teal);margin-right:5px;"></i>Typing 39 WPM</div>
         </div>
@@ -350,16 +378,16 @@
       </div>
       <div class="exp-company">Krayons Convergence Pvt Ltd</div>
       <div class="skill-chips">
-        <div class="skill-chip">Technical SEO audits</div>
-        <div class="skill-chip">On-page &amp; Off-page</div>
-        <div class="skill-chip">Link building</div>
-        <div class="skill-chip">Web Analytics (GA, GSC)</div>
-        <div class="skill-chip">Content optimization</div>
-        <div class="skill-chip">Keyword research</div>
-        <div class="skill-chip">SEO reporting</div>
-        <div class="skill-chip">Strategy development</div>
+        <div class="skill-chip">Google Ads campaign setup</div>
+        <div class="skill-chip">Meta Ads (FB/IG)</div>
+        <div class="skill-chip">Audience targeting</div>
+        <div class="skill-chip">Bid &amp; budget strategy</div>
+        <div class="skill-chip">Conversion tracking</div>
+        <div class="skill-chip">A/B testing ad creatives</div>
+        <div class="skill-chip">Retargeting &amp; lookalikes</div>
+        <div class="skill-chip">ROAS optimization</div>
       </div>
-      <p class="exp-desc">Manage client campaigns end-to-end — improving site speed, mobile usability, and indexability, while building high-authority backlinks that move rankings.</p>
+      <p class="exp-desc">Manage Google &amp; Meta ad accounts end-to-end — building campaigns, testing creatives, refining audiences, and optimizing bids to lower CPA and scale ROAS.</p>
     </div>
   </div>
 </section>
