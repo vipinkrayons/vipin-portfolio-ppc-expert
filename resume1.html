@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vipin Sharma · Resume (2 pages)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #e8e6e0;  /* subtle off-gray for screen context */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* A4 page simulation */
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      background: white;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      margin-bottom: 40px;
+      padding: 14mm 12mm;
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      page-break-after: always;
+      transition: all 0.2s;
+    }
+
+    /* print-friendly */
+    @media print {
+      body { background: white; padding: 0; }
+      .page { box-shadow: none; border-radius: 0; margin: 0 auto; padding: 14mm 12mm; }
+      .page:last-child { margin-bottom: 0; }
+    }
+
+    /* typography */
+    h1, h2, h3, h4 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    .resume-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 1px solid #d0d0c8;
+      padding-bottom: 14px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .name-title h1 {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: #1f1f1a;
+    }
+    .name-title h1 span { color: #b33a2a; }
+    .name-title .tagline {
+      font-size: 14px;
+      font-weight: 500;
+      color: #4d4d44;
+      margin-top: 3px;
+      letter-spacing: 0.2px;
+    }
+    .contact-mini {
+      text-align: right;
+      font-size: 13px;
+      line-height: 1.6;
+      color: #2f2f2a;
+    }
+    .contact-mini a {
+      color: #1f1f1a;
+      text-decoration: none;
+      border-bottom: 1px dotted #c0bdb0;
+    }
+    .contact-mini a:hover { border-bottom: 1px solid #b33a2a; }
+
+    /* two‑column layout */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 2.1fr;
+      gap: 24px;
+      flex: 1;
+    }
+
+    /* left column */
+    .left-panel {
+      border-right: 1px solid #e0ded6;
+      padding-right: 20px;
+    }
+    .right-panel {
+      padding-left: 4px;
+    }
+
+    .section-title {
+      font-size: 15px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      color: #1f1f1a;
+      border-bottom: 1px solid #d0d0c8;
+      padding-bottom: 6px;
+      margin: 18px 0 12px 0;
+    }
+    .section-title:first-of-type { margin-top: 0; }
+
+    /* skill chips */
+    .skill-chip {
+      display: inline-block;
+      background: #f2f1eb;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 500;
+      color: #1f1f1a;
+      margin: 0 4px 8px 0;
+      border: 1px solid #e0ddd2;
+    }
+
+    .edu-item {
+      margin-bottom: 12px;
+    }
+    .edu-item .title {
+      font-weight: 600;
+      font-size: 14px;
+      color: #1f1f1a;
+    }
+    .edu-item .meta {
+      font-size: 12px;
+      color: #5e5e52;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .exp-item {
+      margin-bottom: 20px;
+    }
+    .exp-item .exp-head {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 600;
+      font-size: 15px;
+      color: #1f1f1a;
+    }
+    .exp-item .exp-org {
+      font-weight: 500;
+      color: #b33a2a;
+      font-size: 14px;
+      margin: 2px 0 4px 0;
+    }
+    .exp-item .exp-desc {
+      font-size: 13px;
+      line-height: 1.5;
+      color: #33332e;
+      margin-top: 6px;
+      padding-left: 6px;
+      border-left: 3px solid #d0cdbf;
+      padding-left: 12px;
+    }
+    .exp-item .exp-desc ul {
+      list-style: none;
+      padding: 0;
+      margin: 4px 0 0 0;
+    }
+    .exp-item .exp-desc li {
+      position: relative;
+      padding-left: 18px;
+      margin-bottom: 3px;
+    }
+    .exp-item .exp-desc li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: #b33a2a;
+      font-weight: 600;
+    }
+
+    /* metric cards (4‑column) */
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin: 6px 0 10px 0;
+      background: #f6f5f0;
+      padding: 14px 8px;
+      border-radius: 12px;
+      border: 1px solid #e0ddd2;
+    }
+    .metric-item {
+      text-align: center;
+    }
+    .metric-item .number {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 22px;
+      color: #b33a2a;
+      line-height: 1.2;
+    }
+    .metric-item .number span { font-size: 18px; }
+    .metric-item .label {
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      color: #3d3d35;
+      margin-top: 2px;
+    }
+
+    .highlight-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 14px;
+      margin: 6px 0 8px 0;
+    }
+    .highlight-item {
+      font-size: 13px;
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+    }
+    .highlight-item strong { font-weight: 600; color: #1f1f1a; }
+    .highlight-item .num { color: #b33a2a; font-weight: 700; }
+
+    /* second page specific */
+    .two-col-page2 {
+      display: grid;
+      grid-template-columns: 1fr 2.1fr;
+      gap: 24px;
+      flex: 1;
+    }
+
+    .cert-badge {
+      display: inline-block;
+      background: #f2f1eb;
+      border-radius: 30px;
+      padding: 4px 14px;
+      font-size: 12px;
+      font-weight: 500;
+      border: 1px solid #d0cdbf;
+      margin: 0 6px 8px 0;
+    }
+
+    .footer-meta {
+      margin-top: 20px;
+      font-size: 11px;
+      color: #7a7a6a;
+      text-align: right;
+      border-top: 1px solid #e0ded6;
+      padding-top: 12px;
+      font-weight: 400;
+      letter-spacing: 0.3px;
+    }
+
+    @media (max-width: 800px) {
+      .page { width: 100%; min-height: auto; padding: 20px; }
+      .two-col, .two-col-page2 { grid-template-columns: 1fr; }
+      .left-panel { border-right: none; padding-right: 0; }
+      .right-panel { padding-left: 0; }
+      .highlight-grid { grid-template-columns: 1fr; }
+      .metric-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <!-- PAGE 1 -->
+  <div class="page">
+    <!-- header -->
+    <div class="resume-header">
+      <div class="name-title">
+        <h1>Vipin <span>Sharma</span></h1>
+        <div class="tagline">Paid Ads Specialist · Google &amp; Meta</div>
+      </div>
+      <div class="contact-mini">
+        <div>📧 <a href="mailto:vipincanva@gmail.com">vipincanva@gmail.com</a></div>
+        <div>📱 <a href="tel:+919540559818">+91 95405 59818</a></div>
+        <div>🔗 <a href="https://vipinkrayons.github.io/vipin-portfolio-ppc-expert/" target="_blank">Portfolio</a></div>
+      </div>
+    </div>
+
+    <!-- two column layout -->
+    <div class="two-col">
+      <!-- LEFT COLUMN -->
+      <div class="left-panel">
+        <!-- profile -->
+        <div class="section-title">Profile</div>
+        <p style="font-size:13px; line-height:1.5; color:#2f2f2a; margin-bottom:8px;">
+          Performance-driven Paid Ads specialist with 2.5+ years of experience managing Google &amp; Meta campaigns. 
+          Data‑first, creative‑minded, obsessed with ROAS and conversion efficiency.
+        </p>
+
+        <!-- metric section -->
+        <div class="metric-grid">
+          <div class="metric-item">
+            <div class="number">$120K<span>+</span></div>
+            <div class="label">Client Revenue</div>
+          </div>
+          <div class="metric-item">
+            <div class="number">10K<span>+</span></div>
+            <div class="label">Leads Generated</div>
+          </div>
+          <div class="metric-item">
+            <div class="number">10X</div>
+            <div class="label">ROAS Improvement</div>
+          </div>
+          <div class="metric-item">
+            <div class="number">2.5<span>+</span></div>
+            <div class="label">Years Experience</div>
+          </div>
+        </div>
+
+        <!-- core skills -->
+        <div class="section-title">Core Skills</div>
+        <div>
+          <span class="skill-chip">Google Ads</span>
+          <span class="skill-chip">Meta Ads (FB/IG)</span>
+          <span class="skill-chip">PPC Strategy</span>
+          <span class="skill-chip">Keyword Research</span>
+          <span class="skill-chip">Audience Targeting</span>
+          <span class="skill-chip">A/B Testing</span>
+          <span class="skill-chip">Lookalike &amp; Retargeting</span>
+          <span class="skill-chip">Google Analytics 4</span>
+          <span class="skill-chip">Search Console</span>
+          <span class="skill-chip">SEMRUSH Pro</span>
+          <span class="skill-chip">Canva / Ad Creatives</span>
+          <span class="skill-chip">WordPress</span>
+          <span class="skill-chip">SEO / SMO</span>
+        </div>
+
+        <!-- education -->
+        <div class="section-title">Education</div>
+        <div class="edu-item">
+          <div class="title">Digital Marketing</div>
+          <div class="meta"><span>DIDM, New Delhi</span> <span>2023</span></div>
+        </div>
+        <div class="edu-item">
+          <div class="title">Diploma, Mechanical Eng.</div>
+          <div class="meta"><span>Pusa Institute, Delhi</span> <span>79% · 2022</span></div>
+        </div>
+        <div class="edu-item">
+          <div class="title">10th Standard</div>
+          <div class="meta"><span>Govt. School, Delhi</span> <span>73%</span></div>
+        </div>
+
+        <!-- tools -->
+        <div class="section-title">Tools &amp; Platforms</div>
+        <div>
+          <span class="skill-chip">Google Ads Manager</span>
+          <span class="skill-chip">Meta Business Suite</span>
+          <span class="skill-chip">GA4 · GSC</span>
+          <span class="skill-chip">SEMRUSH · Ahrefs</span>
+          <span class="skill-chip">Canva Pro</span>
+          <span class="skill-chip">MS Office</span>
+        </div>
+        <div style="margin-top: 16px;">
+          <span class="skill-chip">📝 Typing 39 WPM</span>
+          <span class="skill-chip">🔍 Data Analysis</span>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <div class="right-panel">
+        <!-- experience -->
+        <div class="section-title">Experience</div>
+
+        <div class="exp-item">
+          <div class="exp-head">
+            <span>Digital Marketing Executive</span>
+            <span style="font-weight:500; font-size:13px; color:#5e5e52;">AUG 2023 – PRESENT</span>
+          </div>
+          <div class="exp-org">Krayons Convergence Pvt Ltd · New Delhi</div>
+          <div class="exp-desc">
+            <ul>
+              <li>Manage Google &amp; Meta ad accounts end‑to‑end, driving 10X ROAS improvement across 15+ clients.</li>
+              <li>Develop and execute full‑funnel campaigns: awareness, retargeting, and conversion optimization.</li>
+              <li>Perform technical SEO audits and on‑page/off‑page optimization, increasing organic visibility by 40%.</li>
+              <li>Build high‑authority backlinks and implement content strategies that complement paid efforts.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- performance highlights -->
+        <div class="section-title" style="margin-top: 24px;">Performance Highlights</div>
+        <div class="highlight-grid">
+          <div class="highlight-item"><strong>💰</strong> <span class="num">$120K+</span> client revenue generated</div>
+          <div class="highlight-item"><strong>📈</strong> <span class="num">10X</span> average ROAS improvement</div>
+          <div class="highlight-item"><strong>👥</strong> <span class="num">10,000+</span> leads generated</div>
+          <div class="highlight-item"><strong>⚡</strong> <span class="num">2.5+</span> years of hands‑on experience</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-meta">Vipin Sharma · Paid Ads Specialist · Page 1/2</div>
+  </div>
+
+  <!-- PAGE 2 -->
+  <div class="page">
+    <div class="resume-header" style="border-bottom: 1px solid #e0ded6; padding-bottom: 12px; margin-bottom: 16px;">
+      <div class="name-title">
+        <h1 style="font-size: 24px;">Vipin <span>Sharma</span></h1>
+        <div class="tagline" style="font-size:13px;">Google &amp; Meta Ads · Performance Marketing</div>
+      </div>
+      <div class="contact-mini" style="font-size:12px;">
+        <div>📧 vipincanva@gmail.com  ·  📱 +91 95405 59818</div>
+        <div style="margin-top:2px;">🔗 <a href="https://vipinkrayons.github.io/vipin-portfolio-ppc-expert/" target="_blank" style="border-bottom:1px dotted #c0bdb0;">portfolio</a></div>
+      </div>
+    </div>
+
+    <div class="two-col-page2">
+      <!-- left column page 2 -->
+      <div class="left-panel">
+        <div class="section-title">Certifications</div>
+        <div>
+          <span class="cert-badge">Google Ads Search</span>
+          <span class="cert-badge">Google Ads Display</span>
+          <span class="cert-badge">Meta Certified Digital Marketing Associate</span>
+          <span class="cert-badge">SEMRUSH SEO Toolkit</span>
+          <span class="cert-badge">Google Analytics 4</span>
+        </div>
+
+        <div class="section-title" style="margin-top: 24px;">Languages</div>
+        <div style="font-size:13px; line-height:1.7;">
+          <span style="font-weight:600;">English</span> — professional proficiency<br>
+          <span style="font-weight:600;">Hindi</span> — native / bilingual
+        </div>
+
+        <div class="section-title" style="margin-top: 24px;">Interests</div>
+        <div style="font-size:13px; line-height:1.6; color:#2f2f2a;">
+          Ad psychology · Copywriting · UX/CRO · Data storytelling · Creative direction
+        </div>
+      </div>
+
+      <!-- right column page 2 -->
+      <div class="right-panel">
+        <div class="section-title">Campaign &amp; Creative Portfolio</div>
+        <div style="font-size:13px; line-height:1.6; color:#2f2f2a; margin-bottom: 12px;">
+          <strong>50+ ad creatives</strong> built for Meta &amp; Google, tested and optimized for CTR, engagement and conversions.
+          Full‑funnel approach: from prospecting to retargeting, with lookalike and custom audience layers.
+        </div>
+
+        <!-- campaign snapshot -->
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px 12px; background:#f6f5f0; padding:14px 12px; border-radius:8px; margin: 8px 0 12px 0;">
+          <div><span style="font-weight:600;">Google Ads:</span> Search + Display + Shopping</div>
+          <div><span style="font-weight:600;">Meta Ads:</span> FB/IG + Stories + Reels</div>
+          <div><span style="font-weight:600;">CTR uplift:</span> +42% (A/B tested)</div>
+          <div><span style="font-weight:600;">Conversion lift:</span> +58%</div>
+        </div>
+
+        <div class="section-title" style="margin-top: 14px;">Growth Strategy &amp; Execution</div>
+        <div style="font-size:13px; line-height:1.6; color:#2f2f2a;">
+          <ul style="list-style: none; padding:0;">
+            <li style="display:flex; gap:10px; margin-bottom:8px;"><span style="font-weight:700; color:#b33a2a;">01</span> <span><strong>Precision targeting</strong> — custom, lookalike, retargeting, in‑market audiences.</span></li>
+            <li style="display:flex; gap:10px; margin-bottom:8px;"><span style="font-weight:700; color:#b33a2a;">02</span> <span><strong>Data‑driven creative</strong> — test ad copy, visuals, CTAs; optimize for ROAS.</span></li>
+            <li style="display:flex; gap:10px; margin-bottom:8px;"><span style="font-weight:700; color:#b33a2a;">03</span> <span><strong>Full‑funnel</strong> — awareness → consideration → conversion + retention.</span></li>
+            <li style="display:flex; gap:10px; margin-bottom:8px;"><span style="font-weight:700; color:#b33a2a;">04</span> <span><strong>Budget efficiency</strong> — lower CPA, maximize LTV with daily optimizations.</span></li>
+          </ul>
+        </div>
+
+        <div class="section-title" style="margin-top: 18px;">Selected Achievements</div>
+        <div style="font-size:13px; line-height:1.6;">
+          <ul style="list-style: none; padding:0;">
+            <li style="padding:4px 0; border-bottom:1px solid #efede6;">✔ Scaled a D2C brand from $2K to $28K monthly ad revenue (14x growth) in 5 months.</li>
+            <li style="padding:4px 0; border-bottom:1px solid #efede6;">✔ Reduced cost‑per‑lead by 34% for a B2B SaaS client through audience layering.</li>
+            <li style="padding:4px 0;">✔ Increased CTR by 70% on Meta Ads through iterative creative testing.</li>
+          </ul>
+        </div>
+
+        <!-- closing -->
+        <div style="margin-top: 24px; background:#fcfbf8; padding:12px 14px; border-left:4px solid #b33a2a; border-radius:4px; font-size:13px; color:#1f1f1a;">
+          <strong>📌 Open to opportunities</strong> — Available for full‑time, contract, or freelance paid ads roles. 
+          Let’s scale your revenue with data‑backed campaigns.
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-meta" style="margin-top: 12px;">Vipin Sharma · Paid Ads Specialist · Page 2/2 — <span style="font-weight:400;">portfolio &amp; performance resume</span></div>
+  </div>
+
+</body>
+</html>
