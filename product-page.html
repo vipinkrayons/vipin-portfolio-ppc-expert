@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>Woman Care · Aurora Leaf Studs</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background: #f8f4f0;
+      display: flex;
+      justify-content: center;
+      padding: 0 0 100px 0;
+      min-height: 100vh;
+    }
+
+    .product-page {
+      max-width: 420px;
+      width: 100%;
+      background: #ffffff;
+      box-shadow: 0 0 30px rgba(180, 100, 60, 0.08);
+      padding: 16px 16px 0 16px;
+    }
+
+    .feature-image {
+      width: 100%;
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 12px;
+      background: #f5ede8;
+      border: 1px solid #e8dbd2;
+    }
+    .feature-image img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+    }
+
+    .gallery-row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 18px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      scrollbar-width: thin;
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x mandatory;
+    }
+    .gallery-row img {
+      width: 80px;
+      height: 80px;
+      border-radius: 16px;
+      object-fit: cover;
+      background: #f5ede8;
+      flex-shrink: 0;
+      border: 2px solid #e8dbd2;
+      transition: 0.15s;
+      scroll-snap-align: start;
+    }
+
+    .main-category {
+      display: inline-block;
+      background: #8b1a2b;
+      color: #f5e6c8;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      padding: 6px 18px;
+      border-radius: 40px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      animation: pulse-glow 2s infinite alternate;
+      box-shadow: 0 2px 12px rgba(139, 26, 43, 0.30);
+    }
+    @keyframes pulse-glow {
+      0% { background: #8b1a2b; box-shadow: 0 0 0 0 rgba(139, 26, 43, 0.35); }
+      100% { background: #a02236; box-shadow: 0 0 16px 4px rgba(139, 26, 43, 0.20); }
+    }
+
+    .product-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 4px;
+      color: #2c1810;
+    }
+    .brand-name {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #a67c6b;
+      letter-spacing: 0.3px;
+      margin-bottom: 6px;
+    }
+    .brand-name span {
+      background: #2c1810;
+      color: #d4af37;
+      padding: 2px 12px;
+      border-radius: 30px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      margin-left: 6px;
+    }
+
+    .rating-reviews {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 6px 0 10px 0;
+    }
+    .stars {
+      color: #d4af37;
+      letter-spacing: 1px;
+      font-size: 0.9rem;
+    }
+    .review-count {
+      font-size: 0.8rem;
+      color: #6b4c3e;
+      background: #f5ede8;
+      padding: 2px 14px;
+      border-radius: 40px;
+      font-weight: 500;
+    }
+    .price-block {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 6px;
+    }
+    .sale-price {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #2c1810;
+    }
+    .regular-price {
+      font-size: 1rem;
+      color: #a67c6b;
+      text-decoration: line-through;
+    }
+    .discount-badge {
+      background: #d4af37;
+      color: #2c1810;
+      font-weight: 700;
+      font-size: 0.75rem;
+      padding: 4px 14px;
+      border-radius: 40px;
+    }
+    .offer-tag {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 14px;
+      background: #f8f4f0;
+      padding: 10px 14px;
+      border-radius: 20px;
+      margin: 12px 0 14px 0;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #2c1810;
+      border: 1px solid #e8dbd2;
+    }
+    .offer-tag i {
+      color: #d4af37;
+      margin-right: 4px;
+    }
+
+    .desc-square {
+      background: #faf6f2;
+      border: 1px solid #e8dbd2;
+      border-radius: 20px;
+      padding: 16px 16px;
+      margin: 14px 0 12px 0;
+      box-shadow: inset 0 1px 4px rgba(180, 100, 60, 0.04);
+    }
+    .desc-square p {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: #2c1810;
+      margin-bottom: 6px;
+    }
+    .desc-square .highlight-desc {
+      font-weight: 600;
+      color: #8b1a2b;
+    }
+
+    .details-table-wrap {
+      background: #faf6f2;
+      border-radius: 20px;
+      border: 1px solid #e8dbd2;
+      overflow: hidden;
+      margin: 10px 0 14px 0;
+    }
+    .details-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.8rem;
+    }
+    .details-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid #e8dbd2;
+      color: #2c1810;
+    }
+    .details-table tr:last-child td {
+      border-bottom: none;
+    }
+    .details-table .label {
+      font-weight: 600;
+      color: #6b4c3e;
+      width: 40%;
+      background: #f5ede8;
+    }
+    .details-table .value {
+      background: white;
+    }
+
+    .live-viewers {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #2c1810;
+      color: #d4af37;
+      padding: 4px 16px 4px 12px;
+      border-radius: 40px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      margin: 6px 0 10px 0;
+      animation: float-bounce 3s infinite alternate ease-in-out;
+      box-shadow: 0 4px 12px rgba(44, 24, 16, 0.15);
+      letter-spacing: 0.2px;
+    }
+    .live-viewers i {
+      color: #6fcf97;
+      font-size: 0.6rem;
+      margin-right: 2px;
+    }
+    @keyframes float-bounce {
+      0% { transform: translateY(0px); }
+      100% { transform: translateY(-4px); }
+    }
+
+    /* ===== COUPON OFFER SECTION ===== */
+    .coupon-offer {
+      background: linear-gradient(135deg, #8b1a2b 0%, #a02236 100%);
+      border-radius: 20px;
+      padding: 16px 18px;
+      margin: 14px 0 10px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      box-shadow: 0 4px 20px rgba(139, 26, 43, 0.25);
+      animation: coupon-pulse 2s infinite alternate ease-in-out;
+      border: 1px solid rgba(212, 175, 55, 0.3);
+    }
+    @keyframes coupon-pulse {
+      0% { box-shadow: 0 4px 20px rgba(139, 26, 43, 0.25); transform: scale(1); }
+      100% { box-shadow: 0 6px 30px rgba(139, 26, 43, 0.40); transform: scale(1.01); }
+    }
+    .coupon-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex: 1;
+    }
+    .coupon-icon {
+      background: rgba(255, 255, 255, 0.15);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      color: #d4af37;
+      animation: icon-bounce 1.5s infinite alternate;
+    }
+    @keyframes icon-bounce {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.1); }
+    }
+    .coupon-text {
+      color: #f5e6c8;
+    }
+    .coupon-text .coupon-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      opacity: 0.9;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .coupon-text .coupon-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.3;
+    }
+    .coupon-text .coupon-title span {
+      color: #d4af37;
+    }
+    .coupon-code-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.12);
+      padding: 4px 4px 4px 14px;
+      border-radius: 60px;
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      backdrop-filter: blur(4px);
+    }
+    .coupon-code {
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: 1.5px;
+      font-family: 'Courier New', monospace;
+    }
+    .copy-btn {
+      background: #d4af37;
+      border: none;
+      color: #2c1810;
+      padding: 8px 16px;
+      border-radius: 40px;
+      font-weight: 700;
+      font-size: 0.7rem;
+      cursor: pointer;
+      transition: 0.15s;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      white-space: nowrap;
+    }
+    .copy-btn:active {
+      transform: scale(0.92);
+    }
+    .copy-btn.copied {
+      background: #28a745;
+      color: white;
+    }
+    .coupon-savings {
+      font-size: 0.7rem;
+      color: #d4af37;
+      font-weight: 600;
+      margin-top: 2px;
+    }
+    .coupon-savings i {
+      margin-right: 3px;
+    }
+
+    /* ===== REVIEWS SECTION ===== */
+    .reviews-section {
+      margin: 18px 0 12px 0;
+      background: #faf6f2;
+      border-radius: 24px;
+      padding: 16px 14px 14px 14px;
+      border: 1px solid #e8dbd2;
+    }
+
+    .rating-summary {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 12px;
+      background: #f5ede8;
+      border-radius: 16px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+    .rating-big-number {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #2c1810;
+      line-height: 1;
+    }
+    .rating-big-stars {
+      color: #d4af37;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+    }
+    .rating-total {
+      font-size: 0.75rem;
+      color: #6b4c3e;
+      font-weight: 500;
+    }
+    .rating-bar-container {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      flex: 1;
+      min-width: 120px;
+    }
+    .rating-bar-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.65rem;
+      color: #6b4c3e;
+    }
+    .rating-bar-row .bar-label {
+      min-width: 18px;
+      font-weight: 600;
+    }
+    .rating-bar-track {
+      flex: 1;
+      height: 5px;
+      background: #e8dbd2;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .rating-bar-fill {
+      height: 100%;
+      background: #d4af37;
+      border-radius: 10px;
+      transition: width 0.4s ease;
+    }
+
+    .reviews-section h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+      color: #2c1810;
+    }
+    .reviews-section h4 i {
+      color: #d4af37;
+    }
+
+    .review-item {
+      background: white;
+      border-radius: 18px;
+      padding: 12px 14px;
+      margin-bottom: 10px;
+      box-shadow: 0 2px 8px rgba(180, 100, 60, 0.05);
+      border: 1px solid #e8dbd2;
+    }
+    .review-item.hidden-review {
+      display: none;
+    }
+    .review-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 4px 8px;
+      margin-bottom: 4px;
+    }
+    .review-name {
+      font-weight: 700;
+      color: #2c1810;
+      font-size: 0.85rem;
+    }
+    .review-verified {
+      background: #e8dbd2;
+      color: #6b4c3e;
+      font-size: 0.6rem;
+      font-weight: 700;
+      padding: 2px 12px;
+      border-radius: 30px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .review-stars {
+      color: #d4af37;
+      font-size: 0.7rem;
+      letter-spacing: 1px;
+    }
+    .review-text {
+      font-size: 0.82rem;
+      color: #2c1810;
+      line-height: 1.4;
+      margin-top: 4px;
+      padding-right: 4px;
+    }
+
+    .see-all-reviews-btn {
+      background: transparent;
+      border: 1px solid #d4af37;
+      color: #2c1810;
+      padding: 8px 16px;
+      border-radius: 40px;
+      font-weight: 700;
+      font-size: 0.75rem;
+      cursor: pointer;
+      transition: 0.15s;
+      width: 100%;
+      margin-top: 4px;
+    }
+    .see-all-reviews-btn:active {
+      transform: scale(0.96);
+      background: #f5ede8;
+    }
+    .see-all-reviews-btn i {
+      margin-right: 6px;
+      color: #d4af37;
+    }
+
+    .add-review-box {
+      background: white;
+      border-radius: 18px;
+      padding: 14px;
+      border: 1px solid #e8dbd2;
+      margin-top: 10px;
+    }
+    .add-review-box h5 {
+      font-size: 0.8rem;
+      color: #2c1810;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    .add-review-box .star-input {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 10px;
+    }
+    .add-review-box .star-input i {
+      font-size: 1.3rem;
+      color: #e8dbd2;
+      cursor: pointer;
+      transition: 0.15s;
+    }
+    .add-review-box .star-input i.active {
+      color: #d4af37;
+    }
+    .add-review-box .star-input i:hover {
+      transform: scale(1.1);
+    }
+    .add-review-box input,
+    .add-review-box textarea {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid #e8dbd2;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      margin-bottom: 8px;
+      background: #faf6f2;
+      transition: 0.15s;
+      font-family: inherit;
+    }
+    .add-review-box input:focus,
+    .add-review-box textarea:focus {
+      outline: none;
+      border-color: #d4af37;
+      background: white;
+    }
+    .add-review-box textarea {
+      resize: vertical;
+      min-height: 60px;
+    }
+    .add-review-box .submit-review-btn {
+      background: #8b1a2b;
+      color: #f5e6c8;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 40px;
+      font-weight: 700;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: 0.15s;
+      width: 100%;
+    }
+    .add-review-box .submit-review-btn:active {
+      transform: scale(0.96);
+      opacity: 0.85;
+    }
+    .review-success-msg {
+      color: #1e7e34;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-top: 6px;
+      display: none;
+    }
+
+    .recommended-section {
+      margin: 24px 0 10px 0;
+    }
+    .recommended-section h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: -0.2px;
+      color: #2c1810;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .recommended-section h4 i {
+      color: #d4af37;
+    }
+    .rec-scroll {
+      display: flex;
+      gap: 14px;
+      overflow-x: auto;
+      padding: 4px 2px 12px 2px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+      scroll-behavior: smooth;
+    }
+    .rec-scroll::-webkit-scrollbar {
+      height: 4px;
+      background: #e8dbd2;
+      border-radius: 20px;
+    }
+    .rec-scroll::-webkit-scrollbar-thumb {
+      background: #d4af37;
+      border-radius: 20px;
+    }
+    .rec-card {
+      min-width: 155px;
+      max-width: 165px;
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 10px 10px 12px 10px;
+      border: 1px solid #e8dbd2;
+      scroll-snap-align: start;
+      flex-shrink: 0;
+      transition: 0.15s;
+      touch-action: pan-x;
+      box-shadow: 0 2px 8px rgba(180, 100, 60, 0.06);
+    }
+    .rec-card:active {
+      transform: scale(0.97);
+    }
+    .rec-card img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      border-radius: 16px;
+      background: #f5ede8;
+      margin-bottom: 6px;
+      pointer-events: none;
+      border: 1px solid #e8dbd2;
+    }
+    .rec-title {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #2c1810;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+      margin-bottom: 2px;
+    }
+    .rec-price {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #2c1810;
+    }
+    .rec-old-price {
+      font-size: 0.7rem;
+      color: #a67c6b;
+      text-decoration: line-through;
+      margin-left: 4px;
+    }
+    .rec-discount {
+      background: #d4af37;
+      font-size: 0.6rem;
+      font-weight: 700;
+      padding: 0px 8px;
+      border-radius: 30px;
+      margin-left: 6px;
+      color: #2c1810;
+      display: inline-block;
+    }
+    .rec-reviews {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.65rem;
+      color: #6b4c3e;
+      margin-top: 3px;
+    }
+    .rec-reviews i {
+      color: #d4af37;
+      font-size: 0.6rem;
+    }
+
+    /* STICKY BAR - only title + rating */
+    .sticky-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: #ffffff;
+      padding: 10px 16px 12px 16px;
+      box-shadow: 0 -6px 24px rgba(44, 24, 16, 0.10);
+      border-top: 2px solid #d4af37;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      max-width: 420px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 24px 24px 0 0;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(4px);
+      z-index: 100;
+    }
+    .sticky-top-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 4px 8px;
+    }
+    .sticky-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .sticky-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #2c1810;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 150px;
+    }
+    .sticky-reviews {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.7rem;
+      color: #6b4c3e;
+      font-weight: 600;
+    }
+    .sticky-reviews i {
+      color: #d4af37;
+    }
+    .sticky-qty-badge {
+      background: #8b1a2b;
+      color: #f5e6c8;
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 1px 10px;
+      border-radius: 30px;
+      min-width: 20px;
+      text-align: center;
+    }
+
+    .sticky-bottom-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+    }
+    .sticky-buttons {
+      display: flex;
+      gap: 8px;
+      flex: 1;
+    }
+    .btn-add,
+    .btn-buy {
+      flex: 1;
+      padding: 10px 0;
+      border: none;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: 0.15s;
+    }
+    .btn-add {
+      background: #f5ede8;
+      color: #2c1810;
+      border: 1px solid #e8dbd2;
+    }
+    .btn-buy {
+      background: #8b1a2b;
+      color: #f5e6c8;
+      box-shadow: 0 6px 16px rgba(139, 26, 43, 0.25);
+    }
+    .btn-add:active,
+    .btn-buy:active {
+      transform: scale(0.96);
+      opacity: 0.85;
+    }
+
+    .small-note {
+      font-size: 0.7rem;
+      color: #a67c6b;
+      margin: 6px 0 12px;
+      font-weight: 500;
+    }
+    .divider {
+      height: 1px;
+      background: #e8dbd2;
+      margin: 16px 0 4px;
+    }
+
+    .inline-actions {
+      display: flex;
+      gap: 10px;
+      margin: 12px 0 8px 0;
+      align-items: center;
+    }
+    .inline-qty {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: #f5ede8;
+      padding: 2px 6px;
+      border-radius: 60px;
+      flex-shrink: 0;
+      border: 1px solid #e8dbd2;
+    }
+    .inline-qty button {
+      background: transparent;
+      border: none;
+      width: 34px;
+      height: 34px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      cursor: pointer;
+      border-radius: 40px;
+      color: #2c1810;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.1s;
+    }
+    .inline-qty button:active {
+      background: #e8dbd2;
+    }
+    .inline-qty span {
+      min-width: 28px;
+      text-align: center;
+      font-weight: 700;
+      font-size: 1rem;
+      color: #2c1810;
+    }
+    .inline-actions .btn-add,
+    .inline-actions .btn-buy {
+      flex: 1;
+      padding: 12px 0;
+      border: none;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: 0.15s;
+    }
+    .inline-actions .btn-add {
+      background: #f5ede8;
+      color: #2c1810;
+      border: 1px solid #e8dbd2;
+    }
+    .inline-actions .btn-buy {
+      background: #8b1a2b;
+      color: #f5e6c8;
+      box-shadow: 0 6px 16px rgba(139, 26, 43, 0.20);
+    }
+    .inline-actions .btn-add:active,
+    .inline-actions .btn-buy:active {
+      transform: scale(0.96);
+      opacity: 0.85;
+    }
+
+    .per-unit-price {
+      font-size: 0.7rem;
+      color: #a67c6b;
+      margin-left: 4px;
+      font-weight: 400;
+    }
+
+    .hidden-review {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+<div class="product-page">
+
+  <!-- feature -->
+  <div class="feature-image">
+    <img src="https://shops.womancare.in/wp-content/uploads/2026/03/Bracelet-B1-2.webp" alt="Aurora Leaf Studs">
+  </div>
+
+  <!-- gallery -->
+  <div class="gallery-row">
+    <img src="https://shops.womancare.in/wp-content/uploads/2026/03/Bracelet-B1-2.webp" alt="view 1">
+    <img src="https://shops.womancare.in/wp-content/uploads/2026/03/Bracelet-B1-4.webp" alt="view 2">
+    <img src="https://shops.womancare.in/wp-content/uploads/2026/03/Bracelet-B1-3.webp" alt="view 3">
+    <img src="https://shops.womancare.in/wp-content/uploads/2026/03/Bracelet-B1-2.webp" alt="view 4" style="opacity:0.6;">
+  </div>
+
+  <!-- category -->
+  <div class="main-category"><i class="fas fa-leaf" style="margin-right: 6px;"></i> Earrings · Studs</div>
+
+  <!-- brand + title -->
+  <div class="brand-name">Woman Care <span>✦ 18K Gold Plated</span></div>
+  <h1 class="product-title">Aurora Leaf Studs Earrings</h1>
+
+  <!-- ratings -->
+  <div class="rating-reviews">
+    <span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></span>
+    <span class="review-count"><i class="far fa-comment"></i> 3,842 reviews</span>
+    <span style="background:#2c1810; color:#d4af37; padding:2px 12px; border-radius:40px; font-size:0.7rem; font-weight:700;">4.8 ★</span>
+  </div>
+
+  <!-- price -->
+  <div class="price-block">
+    <span class="sale-price" id="pagePrice">₹1,399</span>
+    <span class="regular-price">₹2,499</span>
+    <span class="discount-badge">44% off</span>
+  </div>
+
+  <!-- live viewers -->
+  <div class="live-viewers" id="liveViewer">
+    <i class="fas fa-circle"></i> <span id="viewerCount">24</span> people are viewing
+  </div>
+
+  <!-- offer tags -->
+  <div class="offer-tag">
+    <span><i class="fas fa-bolt"></i> Extra 5% off on prepaid</span>
+    <span><i class="fas fa-gift"></i> Buy 2 @ ₹1599</span>
+    <span><i class="fas fa-truck"></i> Free shipping</span>
+  </div>
+
+  <!-- INLINE ACTIONS -->
+  <div class="inline-actions">
+    <div class="inline-qty" id="pageQty">
+      <button onclick="changeQty(-1)">−</button>
+      <span id="qtyValue">1</span>
+      <button onclick="changeQty(1)">+</button>
+    </div>
+    <button class="btn-add" onclick="alert('Added to cart (Qty: '+document.getElementById('qtyValue').innerText+')')"><i class="fas fa-shopping-bag"></i> Add</button>
+    <button class="btn-buy" onclick="alert('Proceed to buy (Qty: '+document.getElementById('qtyValue').innerText+')')"><i class="fas fa-bolt"></i> Buy</button>
+  </div>
+
+  <!-- ===== COUPON OFFER SECTION ===== -->
+  <div class="coupon-offer" id="couponOffer">
+    <div class="coupon-left">
+      <div class="coupon-icon">
+        <i class="fas fa-tags"></i>
+      </div>
+      <div class="coupon-text">
+        <div class="coupon-label">🎉 Special Offer</div>
+        <div class="coupon-title">Use <span>LOVE</span> & get <span>₹100 OFF</span></div>
+        <div class="coupon-savings"><i class="fas fa-gift"></i> Minimum order ₹999</div>
+      </div>
+    </div>
+    <div class="coupon-code-wrapper">
+      <span class="coupon-code" id="couponCode">LOVE</span>
+      <button class="copy-btn" id="copyCouponBtn">
+        <i class="fas fa-copy"></i> Copy
+      </button>
+    </div>
+  </div>
+
+  <!-- description square -->
+  <div class="desc-square">
+    <p><span class="highlight-desc">✦ 18K Gold Plated · Stainless steel</span> – Lab-tested purity, durable PVD coating. Hypoallergenic & tarnish-resistant.</p>
+    <p><i class="fas fa-box-open" style="color:#d4af37; margin-right: 6px;"></i> Delivers in 2-3 business days · Free shipping</p>
+    <p style="font-size:0.8rem; color:#6b4c3e; margin-top:6px;"><i class="fas fa-shield-alt" style="color:#d4af37;"></i> 1 Year Anti-Tarnish Warranty · If turns black, money back</p>
+  </div>
+
+  <!-- details table -->
+  <div class="details-table-wrap">
+    <table class="details-table">
+      <tr><td class="label">Material</td><td class="value">Stainless Steel, 18K Gold PVD</td></tr>
+      <tr><td class="label">Plating</td><td class="value">Premium 18K Gold (PVD coated)</td></tr>
+      <tr><td class="label">Hypoallergenic</td><td class="value">Yes, nickel & lead free</td></tr>
+      <tr><td class="label">Warranty</td><td class="value">1 Year Anti-Tarnish</td></tr>
+      <tr><td class="label">Returns</td><td class="value">3 days easy return</td></tr>
+      <tr><td class="label">Packaging</td><td class="value">Luxury gift box</td></tr>
+    </table>
+  </div>
+
+  <!-- ===== REVIEWS SECTION ===== -->
+  <div class="reviews-section" id="reviewsSection">
+    <!-- Rating Summary -->
+    <div class="rating-summary" id="ratingSummary">
+      <div>
+        <div class="rating-big-number" id="avgRating">4.8</div>
+        <div class="rating-big-stars" id="avgStars">★★★★★</div>
+        <div class="rating-total" id="totalReviews">3,842 reviews</div>
+      </div>
+      <div class="rating-bar-container">
+        <div class="rating-bar-row">
+          <span class="bar-label">5★</span>
+          <div class="rating-bar-track"><div class="rating-bar-fill" style="width:78%"></div></div>
+          <span>78%</span>
+        </div>
+        <div class="rating-bar-row">
+          <span class="bar-label">4★</span>
+          <div class="rating-bar-track"><div class="rating-bar-fill" style="width:14%"></div></div>
+          <span>14%</span>
+        </div>
+        <div class="rating-bar-row">
+          <span class="bar-label">3★</span>
+          <div class="rating-bar-track"><div class="rating-bar-fill" style="width:5%"></div></div>
+          <span>5%</span>
+        </div>
+        <div class="rating-bar-row">
+          <span class="bar-label">2★</span>
+          <div class="rating-bar-track"><div class="rating-bar-fill" style="width:2%"></div></div>
+          <span>2%</span>
+        </div>
+        <div class="rating-bar-row">
+          <span class="bar-label">1★</span>
+          <div class="rating-bar-track"><div class="rating-bar-fill" style="width:1%"></div></div>
+          <span>1%</span>
+        </div>
+      </div>
+    </div>
+
+    <h4><i class="fas fa-comment-dots"></i> Customer reviews</h4>
+
+    <!-- Reviews list -->
+    <div id="reviewsList">
+      <div class="review-item">
+        <div class="review-header">
+          <span class="review-name">Priya S.</span>
+          <span class="review-verified"><i class="fas fa-check-circle"></i> Verified</span>
+        </div>
+        <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <div class="review-text">Absolutely stunning! The gold plating is rich and the leaf design is so elegant. Got many compliments.</div>
+      </div>
+
+      <div class="review-item">
+        <div class="review-header">
+          <span class="review-name">Ananya R.</span>
+          <span class="review-verified"><i class="fas fa-check-circle"></i> Verified</span>
+        </div>
+        <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+        <div class="review-text">Love the quality, very lightweight and comfortable for daily wear. The anti-tarnish claim seems legit so far.</div>
+      </div>
+
+      <div class="review-item">
+        <div class="review-header">
+          <span class="review-name">Meera K.</span>
+          <span class="review-verified"><i class="fas fa-check-circle"></i> Verified</span>
+        </div>
+        <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <div class="review-text">Perfect gift for my sister. The packaging was beautiful and the earrings look even better in person.</div>
+      </div>
+
+      <!-- Hidden extra reviews -->
+      <div class="review-item hidden-review" id="extraReview1">
+        <div class="review-header">
+          <span class="review-name">Sneha P.</span>
+          <span class="review-verified"><i class="fas fa-check-circle"></i> Verified</span>
+        </div>
+        <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <div class="review-text">Beautiful design and very comfortable. The gold finish is perfect for everyday wear. Highly recommend!</div>
+      </div>
+
+      <div class="review-item hidden-review" id="extraReview2">
+        <div class="review-header">
+          <span class="review-name">Ritu M.</span>
+          <span class="review-verified"><i class="fas fa-check-circle"></i> Verified</span>
+        </div>
+        <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <div class="review-text">I bought these for my mom and she absolutely loves them! The quality is top-notch and they look very premium.</div>
+      </div>
+
+      <div class="review-item hidden-review" id="extraReview3">
+        <div class="review-header">
+          <span class="review-name">Kavya S.</span>
+          <span class="review-verified"><i class="fas fa-check-circle"></i> Verified</span>
+        </div>
+        <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+        <div class="review-text">Really pretty earrings! The leaf design is unique and I've received so many compliments. Worth every penny.</div>
+      </div>
+
+      <div class="review-item hidden-review" id="extraReview4">
+        <div class="review-header">
+          <span class="review-name">Deepa R.</span>
+          <span class="review-verified"><i class="fas fa-check-circle"></i> Verified</span>
+        </div>
+        <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <div class="review-text">Excellent quality and fast delivery. The anti-tarnish warranty gives me confidence in the product.</div>
+      </div>
+    </div>
+
+    <!-- See All Reviews Button -->
+    <button class="see-all-reviews-btn" id="seeAllReviewsBtn">
+      <i class="fas fa-chevron-down"></i> See All Reviews
+    </button>
+
+    <!-- Add Review Form -->
+    <div class="add-review-box">
+      <h5><i class="fas fa-pen" style="color:#d4af37;"></i> Write a review</h5>
+      <div class="star-input" id="starInput">
+        <i class="fas fa-star" data-star="1"></i>
+        <i class="fas fa-star" data-star="2"></i>
+        <i class="fas fa-star" data-star="3"></i>
+        <i class="fas fa-star" data-star="4"></i>
+        <i class="fas fa-star" data-star="5"></i>
+      </div>
+      <input type="text" id="reviewerName" placeholder="Your name" maxlength="50">
+      <textarea id="reviewText" placeholder="Share your experience..." maxlength="500"></textarea>
+      <button class="submit-review-btn" id="submitReviewBtn">Submit Review</button>
+      <div class="review-success-msg" id="reviewSuccess">✓ Thank you! Your review has been added.</div>
+    </div>
+  </div>
+
+  <!-- RECOMMENDED -->
+  <div class="recommended-section">
+    <h4><i class="fas fa-fire"></i> You may also like</h4>
+    <div class="rec-scroll" id="recScroll">
+      <div class="rec-card">
+        <img src="https://shops.womancare.in/wp-content/uploads/2026/03/Bracelet-B1-4.webp" alt="Pino Zirconia">
+        <div class="rec-title" title="Pino Zirconia Tennis Bracelet - 18K Gold Plated">Pino Zirconia Tennis Bracelet - 18K Gold Plated</div>
+        <div><span class="rec-price">₹1,299</span><span class="rec-old-price">₹2,200</span><span class="rec-discount">41%</span></div>
+        <div class="rec-reviews"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> 1.2k</div>
+      </div>
+      <div class="rec-card">
+        <img src="https://shops.womancare.in/wp-content/uploads/2026/03/Bracelet-B1-3.webp" alt="Pluna Hoop">
+        <div class="rec-title" title="Pluna Hoop Solitaire Earrings - 18K Gold Plated Anti Tarnish">Pluna Hoop Solitaire Earrings - 18K Gold Plated</div>
+        <div><span class="rec-price">₹1,149</span><span class="rec-old-price">₹2,200</span><span class="rec-discount">48%</span></div>
+        <div class="rec-reviews"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> 2.4k</div>
+      </div>
+      <div class="rec-card">
+        <img src="https://shops.womancare.in/wp-content/uploads/2026/03/Bracelet-B1-2.webp" alt="Ethereal Necklace">
+        <div class="rec-title" title="Ethereal Necklace - 18K Gold Plated">Ethereal Necklace - 18K Gold Plated</div>
+        <div><span class="rec-price">₹1,249</span><span class="rec-old-price">₹2,799</span><span class="rec-discount">55%</span></div>
+        <div class="rec-reviews"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> 879</div>
+      </div>
+      <div class="rec-card">
+        <img src="https://shops.womancare.in/wp-content/uploads/2026/03/Bracelet-B1-4.webp" alt="Viora Necklace">
+        <div class="rec-title" title="Viora Necklace - 18K Gold Plated Anti Tarnish">Viora Necklace - 18K Gold Plated</div>
+        <div><span class="rec-price">₹1,299</span><span class="rec-old-price">₹2,499</span><span class="rec-discount">48%</span></div>
+        <div class="rec-reviews"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> 1.6k</div>
+      </div>
+      <div class="rec-card">
+        <img src="https://shops.womancare.in/wp-content/uploads/2026/03/Bracelet-B1-3.webp" alt="Tesoro Diamond">
+        <div class="rec-title" title="Tesoro Diamond Solitaire Necklace - 18K Gold Plated">Tesoro Diamond Solitaire Necklace</div>
+        <div><span class="rec-price">₹1,189</span><span class="rec-old-price">₹2,400</span><span class="rec-discount">50%</span></div>
+        <div class="rec-reviews"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> 2.1k</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="small-note"><i class="fas fa-lock"></i> Secure checkout · 3 days easy returns</div>
+  <div class="divider"></div>
+  <div style="height: 12px;"></div>
+</div>
+
+<!-- STICKY BAR -->
+<div class="sticky-bar">
+  <div class="sticky-top-row">
+    <div class="sticky-left">
+      <span class="sticky-title" title="Aurora Leaf Studs Earrings - 18K Gold Plated">Aurora Leaf Studs</span>
+      <span class="sticky-reviews" id="stickyReviews"><i class="fas fa-star"></i> 4.8 (3.8k)</span>
+      <span class="sticky-qty-badge" id="stickyQtyBadge">1</span>
+    </div>
+  </div>
+  <div class="sticky-bottom-row">
+    <div class="sticky-buttons">
+      <button class="btn-add" onclick="alert('Added to cart (Qty: '+document.getElementById('qtyValue').innerText+')')"><i class="fas fa-shopping-bag"></i> Add</button>
+      <button class="btn-buy" onclick="alert('Proceed to buy (Qty: '+document.getElementById('qtyValue').innerText+')')"><i class="fas fa-bolt"></i> Buy</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ===== QUANTITY =====
+  const UNIT_PRICE = 1399;
+  const PRICE_FORMATTER = new Intl.NumberFormat('en-IN', {
+    style: 'currency',
+    currency: 'INR',
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0
+  });
+
+  function changeQty(delta) {
+    let el = document.getElementById('qtyValue');
+    let current = parseInt(el.innerText, 10) || 1;
+    let newVal = current + delta;
+    if (newVal < 1) newVal = 1;
+    if (newVal > 99) newVal = 99;
+    el.innerText = newVal;
+    document.getElementById('stickyQtyBadge').textContent = newVal;
+    updatePagePrice(newVal);
+  }
+
+  function updatePagePrice(qty) {
+    const total = UNIT_PRICE * qty;
+    const el = document.getElementById('pagePrice');
+    if (qty > 1) {
+      el.textContent = PRICE_FORMATTER.format(total) + ` (${qty} pcs)`;
+    } else {
+      el.textContent = PRICE_FORMATTER.format(total);
+    }
+  }
+
+  // ===== COUPON COPY =====
+  document.getElementById('copyCouponBtn').addEventListener('click', function() {
+    const code = document.getElementById('couponCode').textContent;
+    navigator.clipboard.writeText(code).then(() => {
+      this.innerHTML = '<i class="fas fa-check"></i> Copied!';
+      this.classList.add('copied');
+      setTimeout(() => {
+        this.innerHTML = '<i class="fas fa-copy"></i> Copy';
+        this.classList.remove('copied');
+      }, 2500);
+    }).catch(() => {
+      // Fallback
+      const textArea = document.createElement('textarea');
+      textArea.value = code;
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textArea);
+      this.innerHTML = '<i class="fas fa-check"></i> Copied!';
+      this.classList.add('copied');
+      setTimeout(() => {
+        this.innerHTML = '<i class="fas fa-copy"></i> Copy';
+        this.classList.remove('copied');
+      }, 2500);
+    });
+  });
+
+  // ===== SEE ALL REVIEWS =====
+  let allReviewsVisible = false;
+  const seeAllBtn = document.getElementById('seeAllReviewsBtn');
+  const extraReviews = document.querySelectorAll('.hidden-review');
+
+  seeAllBtn.addEventListener('click', function() {
+    allReviewsVisible = !allReviewsVisible;
+    extraReviews.forEach(el => {
+      if (allReviewsVisible) {
+        el.classList.remove('hidden-review');
+      } else {
+        el.classList.add('hidden-review');
+      }
+    });
+    if (allReviewsVisible) {
+      seeAllBtn.innerHTML = '<i class="fas fa-chevron-up"></i> Show Less Reviews';
+    } else {
+      seeAllBtn.innerHTML = '<i class="fas fa-chevron-down"></i> See All Reviews';
+    }
+  });
+
+  // ===== REVIEW SYSTEM =====
+  let reviewCount = 3842;
+  let totalRating = 18441;
+
+  function updateRatingSummary() {
+    const avg = totalRating / reviewCount;
+    const avgRounded = Math.round(avg * 10) / 10;
+    document.getElementById('avgRating').textContent = avgRounded.toFixed(1);
+    document.getElementById('totalReviews').textContent = reviewCount.toLocaleString() + ' reviews';
+
+    const fullStars = Math.floor(avg);
+    const halfStar = avg - fullStars >= 0.5 ? 1 : 0;
+    let starsHtml = '';
+    for (let i = 0; i < 5; i++) {
+      if (i < fullStars) starsHtml += '★';
+      else if (i === fullStars && halfStar) starsHtml += '★';
+      else starsHtml += '☆';
+    }
+    document.getElementById('avgStars').textContent = starsHtml;
+
+    document.getElementById('stickyReviews').innerHTML =
+      `<i class="fas fa-star"></i> ${avgRounded.toFixed(1)} (${reviewCount.toLocaleString()})`;
+  }
+
+  // Star rating selector
+  let selectedRating = 0;
+  const stars = document.querySelectorAll('#starInput i');
+  stars.forEach(star => {
+    star.addEventListener('click', function() {
+      selectedRating = parseInt(this.dataset.star);
+      stars.forEach(s => {
+        if (parseInt(s.dataset.star) <= selectedRating) {
+          s.classList.add('active');
+        } else {
+          s.classList.remove('active');
+        }
+      });
+    });
+    star.addEventListener('mouseenter', function() {
+      const val = parseInt(this.dataset.star);
+      stars.forEach(s => {
+        if (parseInt(s.dataset.star) <= val) {
+          s.style.color = '#d4af37';
+        } else {
+          s.style.color = '#e8dbd2';
+        }
+      });
+    });
+    star.addEventListener('mouseleave', function() {
+      stars.forEach(s => {
+        if (s.classList.contains('active')) {
+          s.style.color = '#d4af37';
+        } else {
+          s.style.color = '#e8dbd2';
+        }
+      });
+    });
+  });
+
+  // Submit review
+  document.getElementById('submitReviewBtn').addEventListener('click', function() {
+    const name = document.getElementById('reviewerName').value.trim();
+    const text = document.getElementById('reviewText').value.trim();
+
+    if (selectedRating === 0) {
+      alert('Please select a star rating.');
+      return;
+    }
+    if (!name) {
+      alert('Please enter your name.');
+      return;
+    }
+    if (!text || text.length < 5) {
+      alert('Please write a review (minimum 5 characters).');
+      return;
+    }
+
+    const reviewsList = document.getElementById('reviewsList');
+    const newReview = document.createElement('div');
+    newReview.className = 'review-item';
+    newReview.innerHTML = `
+      <div class="review-header">
+        <span class="review-name">${name}</span>
+        <span class="review-verified"><i class="fas fa-check-circle"></i> Verified</span>
+      </div>
+      <div class="review-stars">${'★'.repeat(selectedRating)}${'☆'.repeat(5 - selectedRating)}</div>
+      <div class="review-text">${text}</div>
+    `;
+    reviewsList.prepend(newReview);
+
+    reviewCount++;
+    totalRating += selectedRating;
+    updateRatingSummary();
+
+    const successMsg = document.getElementById('reviewSuccess');
+    successMsg.style.display = 'block';
+    setTimeout(() => { successMsg.style.display = 'none'; }, 3000);
+
+    document.getElementById('reviewerName').value = '';
+    document.getElementById('reviewText').value = '';
+    selectedRating = 0;
+    stars.forEach(s => {
+      s.classList.remove('active');
+      s.style.color = '#e8dbd2';
+    });
+  });
+
+  // ===== LIVE VIEWERS =====
+  (function() {
+    const viewerSpan = document.getElementById('viewerCount');
+    if (!viewerSpan) return;
+    let current = parseInt(viewerSpan.innerText, 10) || 24;
+
+    function updateViewer() {
+      const delta = Math.floor(Math.random() * 9) - 3;
+      let newVal = current + delta;
+      if (newVal < 12) newVal = 12 + Math.floor(Math.random() * 6);
+      if (newVal > 45) newVal = 45 - Math.floor(Math.random() * 6);
+      current = newVal;
+      viewerSpan.innerText = current;
+      setTimeout(updateViewer, 4000 + Math.floor(Math.random() * 4000));
+    }
+    setTimeout(updateViewer, 2000);
+  })();
+
+  // ===== INIT =====
+  document.addEventListener('DOMContentLoaded', function() {
+    const initialQty = parseInt(document.getElementById('qtyValue').innerText, 10) || 1;
+    document.getElementById('stickyQtyBadge').textContent = initialQty;
+    updatePagePrice(initialQty);
+    updateRatingSummary();
+
+    const scroll = document.getElementById('recScroll');
+    if (scroll) {
+      scroll.style.touchAction = 'pan-x';
+    }
+  });
+</script>
+</body>
+</html>
